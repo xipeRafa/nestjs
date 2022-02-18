@@ -1,5 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Tuit } from 'src/modules/tuits/tuit.entity';
+import { CreateTuitDto } from './dto/create-tuit.dto';
+import { UpdateTuitDto } from './dto/update-tuit.dto';
 
 @Injectable()
 export class TuitService {
@@ -26,14 +28,14 @@ export class TuitService {
 
       }
 
-      createTuit(message:string){
+      createTuit({message}:CreateTuitDto){
             this.tuits.push({
                   id:Date.now().toString(),
                   message
             })
       }
 
-      updateTuit(id:string, message:any){
+      updateTuit(id:string, {message}:UpdateTuitDto){
             const tuit: Tuit = this.getTuit(id);
             tuit.message = message;
             return tuit
