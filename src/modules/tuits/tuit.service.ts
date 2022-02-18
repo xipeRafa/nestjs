@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Tuit } from 'src/tuits/tuit.entity';
+import { Tuit } from 'src/modules/tuits/tuit.entity';
 
 @Injectable()
 export class TuitService {
@@ -23,7 +23,7 @@ export class TuitService {
             }
 
             return tuit
-            
+
       }
 
       createTuit(message:string){

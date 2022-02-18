@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post, Query } from '@nestjs/common';
-import { TuitService } from '../tuit/tuit.service';
+import { TuitService } from './tuit.service';
 import { Tuit } from './tuit.entity';
 
 @Controller('tuits')
