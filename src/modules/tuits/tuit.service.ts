@@ -7,7 +7,7 @@ import { UpdateTuitDto } from './dto/update-tuit.dto';
 export class TuitService {
       private tuits: Tuit[] = [
             {
-                  id:'1',
+                  id:1,
                   message:'sii'
             }
       ];
@@ -16,7 +16,7 @@ export class TuitService {
             return this.tuits
       }
 
-      getTuit(id:string): Tuit{
+      getTuit(id:number): Tuit{
 
             const tuit = this.tuits.find(el => el.id === id)
 
@@ -30,18 +30,18 @@ export class TuitService {
 
       createTuit({message}:CreateTuitDto){
             this.tuits.push({
-                  id:Date.now().toString(),
+                  id:Date.now(),
                   message
             })
       }
 
-      updateTuit(id:string, {message}:UpdateTuitDto){
+      updateTuit(id:number, {message}:UpdateTuitDto){
             const tuit: Tuit = this.getTuit(id);
             tuit.message = message;
             return tuit
       }
 
-      removeTuit(id:string){
+      removeTuit(id:number){
             const index = this.tuits.findIndex(el => el.id === id)
             if(index >= 0){
                   this.tuits.splice(index, 1)

@@ -1,6 +1,10 @@
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-
+@Entity()
 export class Tuit {
-      id:string;
+      @PrimaryGeneratedColumn('increment')
+      id:number;
+
+      @Column()
       message:string;
 }
